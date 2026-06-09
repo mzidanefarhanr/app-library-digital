@@ -13,7 +13,11 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        // Mengambil data dengan pagination (10 data per halaman)
+        $books = Buku::latest()->paginate(10);
+
+        // Kirim variabel ke file view
+        return view('books', compact('books'));
     }
 
     /**
