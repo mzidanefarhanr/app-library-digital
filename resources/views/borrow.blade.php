@@ -2,7 +2,6 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Borrows') }}
-            {{ $borrows }}
         </h2>
     </x-slot>
 
@@ -12,10 +11,11 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="py-3 px-6">ID</th>
-                    <th scope="col" class="py-3 px-6">TOPIC</th>
-                    <th scope="col" class="py-3 px-6">AUTHOR</th>
-                    <th scope="col" class="py-3 px-6">PUBLISHER</th>
-                    <th scope="col" class="py-3 px-6">PUBLICATION YEAR</th>
+                    <th scope="col" class="py-3 px-6">USER NAME</th>
+                    <th scope="col" class="py-3 px-6">BOOK NAME</th>
+                    <th scope="col" class="py-3 px-6">BORROW DATE</th>
+                    <th scope="col" class="py-3 px-6">RETURN DATE</th>
+                    <th scope="col" class="py-3 px-6">STATUS</th>
                     {{-- <th scope="col" class="py-3 px-6">Aksi</th> --}}
                 </tr>
             </thead>
@@ -23,10 +23,11 @@
                 @forelse($borrows as $borrow)
                     <tr class="bg-white border-b hover:bg-gray-50">
                         <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">{{ $borrow->id }}</td>
-                        <td class="py-4 px-6">{{ $borrow->topic }}</td>
-                        <td class="py-4 px-6">{{ $borrow->author }}</td>
-                        <td class="py-4 px-6">{{ $borrow->publisher }}</td>
-                        <td class="py-4 px-6">{{ $borrow->publication_year }}</td>
+                        <td class="py-4 px-6">{{ $borrow->user['name'] }}</td>
+                        <td class="py-4 px-6">{{ $borrow->buku['author'] }}</td>
+                        <td class="py-4 px-6">{{ $borrow->borrow_date }}</td>
+                        <td class="py-4 px-6">{{ $borrow->return_date }}</td>
+                        <td class="py-4 px-6">{{ $borrow->borrow_status }}</td>
                         {{-- <td class="py-4 px-6">
                             <a href="{{ route('borrows.edit', $borrow->id) }}" class="text-blue-600 hover:underline">Edit</a>
                         </td> --}}

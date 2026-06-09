@@ -17,7 +17,8 @@ class KategoriBukuRelasiFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'buku_id' => rand(1, 50),
+            'kategori_buku_id' => rand(1, 50),
         ];
     }
 }

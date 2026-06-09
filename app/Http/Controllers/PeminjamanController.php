@@ -14,7 +14,7 @@ class PeminjamanController extends Controller
     public function index()
     {
         // Mengambil data dengan pagination (10 data per halaman)
-        $borrows = Peminjaman::latest()->paginate(10);
+        $borrows = Peminjaman::with(['user', 'buku'])->latest()->paginate(10);
 
         // Kirim variabel ke file view
         return view('borrow', compact('borrows'));

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('buku_id')->references('id')->on('bukus');
             $table->unsignedBigInteger('buku_id');
             $table->date('borrow_date');
-            $table->date('return_date');
+            $table->date('return_date')->nullable();
             $table->string('borrow_status');
             $table->timestamps();
         });
