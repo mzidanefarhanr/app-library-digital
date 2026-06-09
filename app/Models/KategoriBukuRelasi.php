@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Buku;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Peminjaman extends Model
+class KategoriBukuRelasi extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $table = 'peminjamen';
+    protected $table = 'kategori_buku_relasis';
 
     /**
      * The attributes that are mass assignable.
@@ -21,11 +19,8 @@ class Peminjaman extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
         'buku_id',
-        'borrow_date',
-        'return_date',
-        'borrow_status',
+        'kategori_buku_id',
     ];
 
      /**
@@ -37,12 +32,12 @@ class Peminjaman extends Model
         //
     ];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
     public function buku(): BelongsTo
     {
         return $this->belongsTo(Buku::class, 'buku_id', 'id');
+    }
+    public function kategoriBuku(): BelongsTo
+    {
+        return $this->belongsTo(KategoriBuku::class, 'kategori_buku_id', 'id');
     }
 }

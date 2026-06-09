@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Peminjaman extends Model
+class KoleksiPribadi extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $table = 'peminjamen';
+    protected $table = 'koleksi_pribadis';
 
     /**
      * The attributes that are mass assignable.
@@ -23,9 +23,6 @@ class Peminjaman extends Model
     protected $fillable = [
         'user_id',
         'buku_id',
-        'borrow_date',
-        'return_date',
-        'borrow_status',
     ];
 
      /**
